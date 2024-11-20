@@ -18,7 +18,16 @@
 
         </div>
     </section>
-
+    <h3>php basico
+        <ul>
+            <ol>1. operadores con String </ol>
+            <ol>2. operadores aritmeticos</ol>
+            <ol>3. tipos de datos</ol>
+            <ol>4. operadores con array </ol>
+            <ol>5. condicionales </ol>
+            <ol>6. Ciclos </ol>
+        </ul>
+    </h3>
     <!-- Sección del formulario -->
     <section class="section">
         <div class="container">
@@ -44,6 +53,9 @@
     <section class="section">
         <div class="container">
             <?php
+
+            include "./OperadoresLogicos.php";
+
             if (isset($_POST["numero"])) {
                 echo "<p class='notification is-success'>El número ingresado es: " . htmlspecialchars($_POST["numero"]) . "</p>";
             }
@@ -53,6 +65,24 @@
             if (isset($_GET["fruta"])) {
                 echo "<p class='notification is-warning'>Fruta: " . htmlspecialchars($_GET["fruta"]) . "</p>";
             }
+
+
+
+            $ol = new OperadoresLogicos ();
+            $ol->saludar();
+            $ol->Operadores();
+            
+
+
+
+
+
+
+
+
+
+
+
             ?>
         </div>
     </section>
