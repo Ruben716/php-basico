@@ -54,23 +54,90 @@
         <div class="container">
             <?php
 
-            include "./OperadoresLogicos.php";
+            include "./operacionesString.php";
+            include "./operadoresaritmeticos.php";
+            include "./tipostados.php";
+            include "./operadoresconarray.php";
+            include "./condisionales.php";
+            include "./ciclos.php";
+           
 
-            if (isset($_POST["numero"])) {
-                echo "<p class='notification is-success'>El número ingresado es: " . htmlspecialchars($_POST["numero"]) . "</p>";
-            }
-            if (isset($_GET["precio"])) {
-                echo "<p class='notification is-info'>Precio: " . htmlspecialchars($_GET["precio"]) . "</p>";
-            }
-            if (isset($_GET["fruta"])) {
-                echo "<p class='notification is-warning'>Fruta: " . htmlspecialchars($_GET["fruta"]) . "</p>";
-            }
+          
+
+            if(isset($_POST["numero"])){
+                $opcion = $_POST["numero"];
+                switch($opcion){
+                case 1:
+                    $lo = new operacionesString();
+                    
+                    echo "</br>";
+                    echo "1. operadores con String";
+                    echo "<p class='notification is-success'>El número ingresado es: ".$lo->funcionesString() . htmlspecialchars($_POST["numero"]) . "</p>";
+                    echo "</br>";
+                    
+                    
+                    break;
+
+                case 2:
+                    $ll = new operacionesAritmeticos();
+                    $ll->funcionesaridmeticas();
+                    echo "</br>";
+                    echo "2. operadores aritmeticos";
+                    echo"<p class='notification is-success'>El número ingresado es: ".$lo->funcionesString() . htmlspecialchars($_POST["numero"]) . "</p>";
+                    echo "</br>";
+                    break;
+
+                case 3:
+                    $lll = new tiposdatos();
+                    
+                    echo "</br>";
+                    echo "3. tipos de datos";
+                    echo"<p class='notification is-success'>El número ingresado es: ".$lll->tipodatos() . htmlspecialchars($_POST["numero"]) . "</p>";
+                    echo "</br>";
+                    break;
+                    
+                case 4:
+                    $llll = new operadoresconarray();
+                    
+                    echo "</br>";
+                    echo "4. operadores con array";
+                    echo"<p class='notification is-success'>El número ingresado es: ".$llll->oparray() . htmlspecialchars($_POST["numero"]) . "</p>";
+                    echo "</br>";
+                    break;
+                    
+                case 5:
+                    $lllll = new condisionales();
+                    
+                    echo "</br>";
+                    echo "5. condicionales";
+                    echo"<p class='notification is-success'>El número ingresado es: ".$lllll->loscondicionales() . htmlspecialchars($_POST["numero"]) . "</p>";
+                    echo "</br>";
+                    break;
+                    
+                case 6:
+                    $llllll = new ciclos();
+                    
+                    echo "</br>";
+                    echo "6. Ciclos";
+                    echo "<p class='notification is-success'>El número ingresado es: ".$llllll->siclo() . htmlspecialchars($_POST["numero"]) . "</p>";
+                    echo "</br>";
+                    break;
+                    
+                
+
+                default:
+                
+                    echo "</br>";
+                    echo "<p class='notification is-success'>El numero que ingreso no es correcto " . htmlspecialchars($_POST["numero"]) . "</p>";;
+                    echo "</br>";
+                    break;
+            }  
+        }
 
 
 
-            $ol = new OperadoresLogicos ();
-            $ol->saludar();
-            $ol->Operadores();
+         
+            
             
 
 
